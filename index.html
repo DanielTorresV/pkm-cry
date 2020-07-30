@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="img/icon.png">
+    <title>Poke sounds</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body class="container">
+    <div class="row pokemons">
+        <div class="col box">
+            <img id="65" data-key="65" class="pokemon" src="img/OMASTAR.png"/>
+            <div class="kbd">A</div>
+        </div>
+        <div class="col box">
+            <img id="83" data-key="83" class="pokemon" src="img/aaabaaajss.png"/>
+            <div class="kbd">S</div>
+        </div>
+        <div class="col box">
+            <img id="68" data-key="68" class="pokemon" src="img/AA-j.png"/>
+            <div class="kbd">D</div>
+        </div>
+        <div class="col box">
+            <img id="70" data-key="70" class="pokemon" src="img/AAAAAAAAAA.png"/>
+            <div class="kbd">F</div>
+        </div>
+        <div class="col box">
+            <img id="71" data-key="71" class="pokemon" src="img/AIIIIIIRRR.png"/>
+            <div class="kbd">G</div>
+        </div>
+        <div class="col box">
+            <img id="72" data-key="72" class="pokemon" src="img/AATTVVV.png"/>
+            <div class="kbd">H</div>
+        </div>
+    </div>
+</body>
+
+<audio data-key="65" src="sounds/OMASTAR.mp3"></audio>
+<audio data-key="83" src="sounds/aaabaaajss.mp3"></audio>
+<audio data-key="68" src="sounds/AA-j.mp3"></audio>
+<audio data-key="70" src="sounds/AAAAAAAAAA.mp3"></audio>
+<audio data-key="71" src="sounds/AIIIIIIRRR.mp3"></audio>
+<audio data-key="72" src="sounds/AATTVVV.mp3"></audio>
+
+<script>
+    window.addEventListener('keydown', function(e) {
+        const audio = document.querySelector('audio[data-key="'+e.keyCode+'"]');
+        const pokemon = document.querySelector('.pokemon[data-key="'+e.keyCode+'"]');
+        if(!audio) return;
+        audio.currentTime = 0;
+        audio.play();
+        pokemon.classList.add('cry'); 
+        audio.onended = function () {
+            pokemon.classList.remove('cry');      
+        };
+    });
+
+    window.addEventListener("click", function(e) {
+        const audio = document.querySelector('audio[data-key="'+e.path[0].id+'"]');
+        const pokemon = document.querySelector('.pokemon[data-key="'+e.path[0].id+'"]');
+        if(!audio) return;
+        audio.currentTime = 0;
+        audio.play();
+        pokemon.classList.add('cry'); 
+        audio.onended = function () {
+            pokemon.classList.remove('cry');      
+        };
+    });
+</script>
+
+</html>

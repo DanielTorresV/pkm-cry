@@ -1,0 +1,66 @@
+body, html {
+    height: 100%;
+}
+
+body {
+    margin:0px;
+    background-image: url("img/background.png");
+    background-repeat:no-repeat;
+    background-position:center;
+}
+
+.pokemons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.pokemon {
+    width: 125px;
+    height: 125px;
+    /*margin: 0rem 1rem;
+    padding: 0rem 1rem;*/
+}
+
+.pokemon:hover{
+    filter:contrast(140%);
+    transform: scale(1.2);
+}
+
+.box {
+    text-align: center;
+    color: white;
+    text-shadow: 0 0 10px black;
+}
+
+.kbd {
+    display: block;
+    font-size: 35px;
+}
+
+.cry{
+    filter:contrast(140%);
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+@keyframes shake {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    
+    20%, 80% {
+      transform: translate3d(2px, 0, 0) scale(1.2);
+    }
+  
+    30%, 50%, 70% {
+      transform: translate3d(-4px, 0, 0) scale(1.2);
+    }
+  
+    40%, 60% {
+      transform: translate3d(4px, 0, 0) scale(1.2);
+    }
+  }
